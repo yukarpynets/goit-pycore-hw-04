@@ -1,12 +1,5 @@
 def get_cats_info(path: str) -> list[dict]:
-    """
-    Legge un file con le informazioni sui gatti.
-
-    path: percorso del file di testo. Ogni riga ha il formato
-          'id,nome,età'.
-    Restituisce una lista di dizionari con le chiavi
-    'id', 'name' e 'age'. In caso di errore restituisce una lista vuota.
-    """
+    
     cats = []
 
     try:
@@ -18,10 +11,10 @@ def get_cats_info(path: str) -> list[dict]:
                 cat_id, name, age = line.split(",")
                 cats.append({"id": cat_id, "name": name, "age": age})
     except FileNotFoundError:
-        print(f"File non trovato: {path}")
+        print(f"файл не знайдено: {path}")
         return []
     except ValueError:
-        print("Il file contiene una riga in un formato non valido.")
+        print("файл містить рядок у неправильному форматі.")
         return []
 
     return cats
